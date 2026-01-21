@@ -13,15 +13,15 @@ enum class NotificationType {
 }
 
 @Converter
-class NotificationTypeSetConverter : AttributeConverter<MutableSet<NotificationType>, String> {
+class NotificationTypeSetConverter : AttributeConverter<MutableSet<String>, String> {
 
-    override fun convertToDatabaseColumn(valueSet: MutableSet<NotificationType>?): String =
+    override fun convertToDatabaseColumn(valueSet: MutableSet<String>?): String =
         valueSet.orEmpty()
-            .joinToString(separator = ";") { it.name }
+            .joinToString(separator = ";") { it }
 
-    override fun convertToEntityAttribute(databaseString: String?): MutableSet<NotificationType> =
+    override fun convertToEntityAttribute(databaseString: String?): MutableSet<String> =
         databaseString.orEmpty()
             .split(";")
-            .map { NotificationType.valueOf(it) }
+            .map { it }
             .toMutableSet()
 }

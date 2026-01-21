@@ -1,6 +1,7 @@
 package de.dkb.api.codeChallenge.notification.controller
 
 import de.dkb.api.codeChallenge.notification.model.NotificationDto
+import de.dkb.api.codeChallenge.notification.model.NotificationTypeCategory
 import de.dkb.api.codeChallenge.notification.service.NotificationService
 import de.dkb.api.codeChallenge.user.model.User
 import org.springframework.web.bind.annotation.PostMapping
@@ -17,4 +18,8 @@ class NotificationController(private val notificationService: NotificationServic
     @PostMapping("/notify")
     fun sendNotification(@RequestBody notificationDto: NotificationDto) =
         notificationService.sendNotification(notificationDto)
+
+    @PostMapping("/addType")
+    fun registerUser(@RequestBody notificationType: NotificationTypeCategory) =
+        notificationService.addNotificationType(notificationType)
 }

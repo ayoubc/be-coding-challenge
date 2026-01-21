@@ -48,6 +48,9 @@ dependencies {
 	testRuntimeOnly("org.jetbrains.kotlin:kotlin-test-junit5")
 	testRuntimeOnly("org.springframework.kafka:spring-kafka-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+	// Swagger / OpenAPI 3
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.3")
 }
 
 kotlin {

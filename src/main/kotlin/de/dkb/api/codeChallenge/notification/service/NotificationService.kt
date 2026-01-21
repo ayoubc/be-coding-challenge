@@ -15,28 +15,28 @@ class NotificationService(
 
     fun registerUser(user: User) = userRepository.save(user)
 
-    fun sendNotification(notificationDto: NotificationDto) {
-        val notificationTypes = notificationTypesRepository.findAll()
+    fun sendNotification(notificationDto: NotificationDto): String {
+        val notificationTypes = notificationTypesRepository.findAll().orEmpty()
 
-        val notificationCategory = notificationTypes.orEmpty()
-            .filter { it.name == notificationDto.notificationType }
-            .map { it.category }
-            .toSet()
-
-        userRepository.findById(notificationDto.userId).ifPresent { user ->
-            run {
-                val isSubscribed = notificationTypes.orEmpty()
+        return userRepository.findById(notificationDto.userId)
+            .map { user ->
+                val notificationCategory = notificationTypes
+                    .filter { it.name == notificationDto.notificationType }
+                    .map { it.category }
+                    .toSet()
+                val isSubscribed = notificationTypes
                     .filter { user.notifications.contains(it.name) }
                     .map { it.category }
                     .any { notificationCategory.contains(it) }
                 if (isSubscribed) {
-                    println(
-                        "Sending notification of type ${notificationDto.notificationType}" +
+                    "Sending notification of type ${notificationDto.notificationType}" +
                             " to user ``````${user.id}: ${notificationDto.message}"
-                    )
+                }
+                else {
+                    "Could not send notification"
                 }
             }
-        }
+            .orElse ("Could not send notification")
     }
 
     fun addNotificationType(notificationType: NotificationTypeCategory) = notificationTypesRepository.save(notificationType)

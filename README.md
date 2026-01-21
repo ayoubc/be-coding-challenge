@@ -7,4 +7,7 @@ All the information about the code challenge is in [CODE_CHALLENGE.md](./CODE_CH
 ```bash
 curl -X POST -H "Content-Type: application/json" localhost:8080/register -d '{ "id": "bcce103d-fc52-4a88-90d3-9578e9721b36", "notifications": ["type1","type5"]}'
 curl -X POST -H "Content-Type: application/json" localhost:8080/notify -d '{ "userId": "bcce103d-fc52-4a88-90d3-9578e9721b36", "notificationType": "type5", "message": "your app rocks!"}'
+curl -X POST -H "Content-Type: application/json" localhost:8080/addType -d '{ "name": "type6", "category": "Category A"}'
+curl -X POST -H "Content-Type: application/json" localhost:8080/notify -d '{ "userId": "bcce103d-fc52-4a88-90d3-9578e9721b36", "notificationType": "type6", "message": "notified after added new type!"}'
+
 ```

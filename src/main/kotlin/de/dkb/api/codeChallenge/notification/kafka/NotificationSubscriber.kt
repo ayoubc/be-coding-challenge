@@ -1,6 +1,6 @@
 package de.dkb.api.codeChallenge.notification.kafka
 
-import de.dkb.api.codeChallenge.notification.NotificationService
+import de.dkb.api.codeChallenge.notification.service.NotificationService
 import de.dkb.api.codeChallenge.notification.model.NotificationDto
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.stereotype.Component

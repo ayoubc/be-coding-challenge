@@ -1,8 +1,11 @@
-package de.dkb.api.codeChallenge.notification
+package de.dkb.api.codeChallenge.notification.controller
 
 import de.dkb.api.codeChallenge.notification.model.NotificationDto
-import de.dkb.api.codeChallenge.notification.model.User
-import org.springframework.web.bind.annotation.*
+import de.dkb.api.codeChallenge.notification.service.NotificationService
+import de.dkb.api.codeChallenge.user.model.User
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class NotificationController(private val notificationService: NotificationService) {

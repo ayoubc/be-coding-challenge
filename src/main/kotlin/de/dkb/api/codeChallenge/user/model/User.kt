@@ -1,5 +1,7 @@
-package de.dkb.api.codeChallenge.notification.model
+package de.dkb.api.codeChallenge.user.model
 
+import de.dkb.api.codeChallenge.notification.model.NotificationType
+import de.dkb.api.codeChallenge.notification.model.NotificationTypeSetConverter
 import jakarta.persistence.Column
 import jakarta.persistence.Convert
 import jakarta.persistence.Entity

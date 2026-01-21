@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: "0003-create-notification-types-table"
+      author: ""
+      changes:
+        - createTable:
+            tableName: "notification_types"
+            columns:
+              - column:
+                  name: "name"
+                  type: "varchar"
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: "pk_notification_types_name"
+                    nullable: false
+              - column:
+                  name: "category"
+                  type: "varchar"
+                  constraints:
+                    nullable: false
+      rollback:
+        - dropTable:
+            tableName: "notification_types"

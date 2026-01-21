@@ -1,0 +1,63 @@
+databaseChangeLog:
+  - changeSet:
+      id: "0004-insert-notification-types"
+      author: ""
+      changes:
+        - insert:
+            tableName: "notification_types"
+            columns:
+              - column:
+                  name: "name"
+                  value: "type1"
+              - column:
+                  name: "category"
+                  value: "Category A"
+        - insert:
+            tableName: "notification_types"
+            columns:
+              - column:
+                  name: "name"
+                  value: "type2"
+              - column:
+                  name: "category"
+                  value: "Category A"
+        - insert:
+            tableName: "notification_types"
+            columns:
+              - column:
+                  name: "name"
+                  value: "type3"
+              - column:
+                  name: "category"
+                  value: "Category A"
+#        - insert:
+#            tableName: "notification_types"
+#            columns:
+#              - column:
+#                  name: "name"
+#                  value: "type6"
+#              - column:
+#                  name: "category"
+#                  value: "Category A"
+        - insert:
+            tableName: "notification_types"
+            columns:
+              - column:
+                  name: "name"
+                  value: "type4"
+              - column:
+                  name: "category"
+                  value: "Category B"
+        - insert:
+            tableName: "notification_types"
+            columns:
+              - column:
+                  name: "name"
+                  value: "type5"
+              - column:
+                  name: "category"
+                  value: "Category B"
+
+      rollback:
+        - dropTable:
+            tableName: "notification_types"
